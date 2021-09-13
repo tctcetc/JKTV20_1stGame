@@ -17,19 +17,30 @@ public class Game {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-        int number = random.nextInt(9 - 0 + 1) + 0;
-        System.out.println(number);
-        System.out.println("Программа задумала число от 0 до 9, угадай!");
-        System.out.print("Введите число:");
-        int userNumber = scanner.nextInt();
-        if(number == userNumber){
-            System.out.println("Правильный ответ");
-        }else{
-            System.out.println("Неправильно. Загадано число: "+number);
-        }
-    }
+            public static void main(String[] args) {
+                    int attempt = 0;
+                    Random random = new Random();
+                    Scanner scanner = new Scanner(System.in);
+                    int number = random.nextInt(9 - 0 + 1) + 0;
+                    System.out.println(number);
+                    System.out.println("Программа задумала число от 0 до 9, угадай!");
+                    while(true){
+                        System.out.print("Введите число:");
+                        int userNumber = scanner.nextInt();
+                        if(number == userNumber){
+                            System.out.println("Правильный ответ");
+                            break;
+                        }else{
+                            if(attempt < 2){
+                                System.out.println("Неправильно. Попробуй ещё раз!");
+                            }else{
+                                System.out.println("Неправильно. Ты проиграл");
+                                break;
+                            }
+                            
+                        }
+                        attempt++;
+                    }
+                }
     
 }
